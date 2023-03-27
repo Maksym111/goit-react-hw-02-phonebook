@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { BtnAdd, Form, Input, Title } from './Form.styled';
 
 class PhoneBookForm extends Component {
   state = {
@@ -34,9 +35,9 @@ class PhoneBookForm extends Component {
 
   render() {
     return (
-      <form action="" onSubmit={this.addNewName}>
-        <h2>Name</h2>
-        <input
+      <Form action="" onSubmit={this.addNewName}>
+        <Title>Name</Title>
+        <Input
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -45,7 +46,8 @@ class PhoneBookForm extends Component {
           onChange={this.handleInput}
         />
 
-        <input
+        <Title>Number</Title>
+        <Input
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -54,8 +56,8 @@ class PhoneBookForm extends Component {
           onChange={this.handleInput}
         />
 
-        <button type="submit">Add contact</button>
-      </form>
+        <BtnAdd type="submit">Add contact</BtnAdd>
+      </Form>
     );
   }
 }

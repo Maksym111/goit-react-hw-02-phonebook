@@ -1,10 +1,11 @@
 import { Component } from 'react';
-import Contacts from './Contacts';
-import Form from './Form';
-import Section from './Section';
+import Contacts from '../Contacts';
+import Form from '../Form';
+import SectionTitle from '../SectionTitle';
 import { nanoid } from 'nanoid';
+import { Container } from './App.styled';
 
-export class App extends Component {
+class App extends Component {
   state = {
     contacts: [],
     filter: '',
@@ -63,8 +64,8 @@ export class App extends Component {
     );
 
     return (
-      <div>
-        <Section title="Phonebook" />
+      <Container>
+        <SectionTitle title="Phonebook" />
         <Form onSubmit={this.formSubmitHandler} />
         <Contacts
           title={'Contacts'}
@@ -74,7 +75,9 @@ export class App extends Component {
           onFilter={this.onFilterSearch}
           onItemDelete={this.onItemDelete}
         />
-      </div>
+      </Container>
     );
   }
 }
+
+export default App;
